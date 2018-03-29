@@ -29,7 +29,20 @@ public class MaxHeap {
 
     public void insert(int n){
         // insert the integer n into the heap properly
-        // 
+        if (this.isIn(n)){
+            return;
+        }
+        else
+    }
+
+    public boolean isIn(int n){
+        // check if n element is in the heap
+        if(n>this.nodes[0]) // bigger than max so obviously not in
+            return false;
+        else{       // this case we have to actually look through it 
+
+        }
+
     }
 
     private int deleteMax(){
