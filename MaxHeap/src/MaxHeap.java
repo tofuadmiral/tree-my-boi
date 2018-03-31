@@ -29,20 +29,40 @@ public class MaxHeap {
 
     public void insert(int n){
         // insert the integer n into the heap properly
-        if (this.isIn(n)){
+        // i.e. insert at end and percolate up until not greater than above
+        if(size == numelements){ // then it's full so don't insert
             return;
         }
-        else
+        else{ // we can insert it
+            size++;
+            nodes[size-1] = n;
+            percolateUp(size-1);
+        }
+
+    }
+
+    public void percolateUp(int nodeIndex){
+        int parentIndex, temp;
+        if(nodeIndex!=0){
+            parentIndex = nodes[(nodeIndex-1)/2;
+            if(nodes[parentIndex]>nodes[nodeIndex]){
+                // swap the two nodes
+                temp = nodes[parentIndex];
+                nodes[parentIndex] = nodes[nodeIndex];
+                nodes[nodeIndex] = temp;
+                percolateUp(parentIndex);
+            }
+        }
     }
 
     public boolean isIn(int n){
         // check if n element is in the heap
         if(n>this.nodes[0]) // bigger than max so obviously not in
             return false;
-        else{       // this case we have to actually look through it 
+        else{       // this case we have to actually look through it
 
         }
-
+        return false;
     }
 
     private int deleteMax(){
