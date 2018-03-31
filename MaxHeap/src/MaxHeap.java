@@ -1,7 +1,7 @@
 public class MaxHeap {
 
     // INSTANCE FIELDS
-    private Integer[] nodes;
+    private Integer[] table;
     private int size;
     private int numelements;
 
@@ -10,7 +10,7 @@ public class MaxHeap {
     public MaxHeap(int n){
         size = n;
         numelements =0;
-        nodes = new Integer[n];
+        table = new Integer[n];
     }
 
     public MaxHeap(Integer[] someArray){
@@ -28,28 +28,33 @@ public class MaxHeap {
     // PUBLIC METHODS
 
     public void insert(int n){
-        // insert the integer n into the heap properly
+        // insert the integer n into the heap properly, duplicates are ALLOWED. 
         // i.e. insert at end and percolate up until not greater than above
         if(size == numelements){ // then it's full so don't insert
             return;
         }
         else{ // we can insert it
             size++;
-            nodes[size-1] = n;
+            // insert at bottom
+            table[size-1] = n;
+            // then percolate it up to where it's supposed to be
             percolateUp(size-1);
         }
-
     }
 
     public void percolateUp(int nodeIndex){
+        // allocate variables for switch
         int parentIndex, temp;
+        // make sure we don't switch if we're at the beginning
         if(nodeIndex!=0){
-            parentIndex = nodes[(nodeIndex-1)/2;
-            if(nodes[parentIndex]>nodes[nodeIndex]){
-                // swap the two nodes
-                temp = nodes[parentIndex];
-                nodes[parentIndex] = nodes[nodeIndex];
-                nodes[nodeIndex] = temp;
+            parentIndex = table[(nodeIndex-1)/2];
+            // max heap so check that parent is smaller then swap if true
+            if(table[parentIndex]<table[nodeIndex]){
+                // swap the two table
+                temp = table[parentIndex];
+                table[parentIndex] = table[nodeIndex];
+                table[nodeIndex] = temp;
+                // recursively keep going until we have it in the right place
                 percolateUp(parentIndex);
             }
         }
@@ -57,7 +62,7 @@ public class MaxHeap {
 
     public boolean isIn(int n){
         // check if n element is in the heap
-        if(n>this.nodes[0]) // bigger than max so obviously not in
+        if(n>this.table[0]) // bigger than max so obviously not in
             return false;
         else{       // this case we have to actually look through it
 
@@ -68,10 +73,15 @@ public class MaxHeap {
     private int deleteMax(){
         // delete the maximum element in the heap (i.e. the root) and return it,
         // then replace with the appropriate next element
+        int root = table[1];
+
+
+        return root;
     }
 
     public String toString(){
         // return a string representation of the heap in level order
+        return "";
     }
 
     public static void heapsort(Integer[] arrayToSort){
