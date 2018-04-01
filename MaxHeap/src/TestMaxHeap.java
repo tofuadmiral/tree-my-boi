@@ -32,10 +32,24 @@ public class TestMaxHeap {
        System.out.println(test2.toString());
 
 
+        // test 5: heapsort an array to prove that everything works
+        System.out.println("\nTest 5: heapsort an array");
+        testarray[0] = 40;
+        testarray[1] = 11;
+        testarray[2] = 7;
+        testarray[3] = 55;
+        testarray[4] = 23;
+        testarray[5] = 1;
+        testarray[6] = 99;
+        testarray[7] = 21;
+        testarray[8] = 65;
+        testarray[9] = 64;
+        test1.heapsort(testarray);
 
+        for(int i = 0; i<10; i++){
+            System.out.println(testarray[i]);
+        }
 
-        // test 5: insert until we have to rehash
-        System.out.println("\nTest 5: insert till we need to reallocate");
 
 
         // test 6: try insert and count

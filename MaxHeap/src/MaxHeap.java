@@ -124,18 +124,23 @@ public class MaxHeap {
 
     public String toString(){
         String stringrep = "";
+        // we've gotta print diff levels on diff lines, so use the powers of two
         for(int i=0;i<size;i++){
-            for(int j=0;j<Math.pow(2,i)&&j+Math.pow(2,i)<=size;j++){
+            for(int j=0; j<Math.pow(2,i)&&j+Math.pow(2,i)<=size; j++){
                 stringrep = stringrep + (array[j+(int)Math.pow(2,i)-1]+" ");
-
             }
             stringrep = stringrep + "\n";
         }
         return stringrep;
     }
 
-    public static void heapsort(Integer[] arrayToSort){
+    public void heapsort(Integer[] arrayToSort){
+        MaxHeap sortedHeap = new MaxHeap(arrayToSort);
 
+        // loop through sorted heap table and put into arraytosort
+        for (int i =0; i<10; i++){
+            arrayToSort[arrayToSort.length - 1 - i] = sortedHeap.deleteMax();
+        }
     }
 
 
