@@ -6,8 +6,13 @@ public class TestMaxHeap {
         MaxHeap test1 = new MaxHeap(10);
         System.out.println(test1.toString());
 
-        // test 2: insert a few elements into the table
-        System.out.println("\nTest 2: insert some items into the MaxHeap");
+//        // test 2: insert a few elements into the table
+//        System.out.println("\nTest 2: insert some items into the MaxHeap");
+//        test1.insert(4);
+//        test1.insert(5);
+//        test1.insert(1);
+//        System.out.println(test1.toString());
+
 
         // test 3: linear probing
         System.out.println("\nTest 3: Create a non Empty Max Heap:");

@@ -17,7 +17,7 @@ public class MaxHeap {
         // make a maxheap from the someArray passed
         // first initialize a new array of integers
         numelements = someArray.length;
-        size = numelements*2+1;
+        size = numelements;
         for (int i = 0; i<numelements; i++){
             // loop through all elements in the array and add to the array
             // add takes care of duplicates and other cases
@@ -32,7 +32,7 @@ public class MaxHeap {
         // i.e. insert at end and percolate up until not greater than above
         if(size == numelements){ // then it's full so allocate double size
             Integer[] newtable = new Integer[size*2];
-            // copy the element's into the new array
+            // copy the elements into the new array
             for (int i = 0; i<size; i++){
                 newtable[i] = table[i];
             }
@@ -40,7 +40,7 @@ public class MaxHeap {
             this.table = newtable;
             this.size = size*2;
         }
-        size++;
+        numelements++;
         // insert at bottom
         table[size-1] = n;
         // then percolate it up to where it's supposed to be
@@ -53,9 +53,12 @@ public class MaxHeap {
         // make sure we don't switch if we're at the beginning
         if(nodeIndex!=0){
             // set the parent
-            parentIndex = table[(nodeIndex-1)/2];
-            // max heap so check that parent is smaller then swap if true
-            if(table[parentIndex]<table[nodeIndex]){
+            if(nodeIndex%2 == 0) // even so parent = 1/2
+                parentIndex = nodeIndex/2;
+            else // odd so parent = -1 then 1/2
+                parentIndex = (nodeIndex-1)/2;
+            // max heap so check that parent is smaller or null then swap if true
+            if(table[parentIndex]<table[nodeIndex] || table[parentIndex] == null){
                 // swap the two table elements
                 temp = table[parentIndex];
                 table[parentIndex] = table[nodeIndex];
@@ -109,7 +112,7 @@ public class MaxHeap {
            stringrep = stringrep + table[it] + ", ";
            if (it == bin){
                bin = bin*2;
-               it =1;
+               it = 1;
                stringrep+="\n";
            }
        }
