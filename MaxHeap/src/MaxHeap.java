@@ -16,8 +16,17 @@ public class MaxHeap {
     // constructor from array
     public MaxHeap(Integer[] someArray){
         items = someArray.length;
+        size = items;
+        array = new Integer[size];
+        for(int i = 0; i<size; i++){
+            this.insert(someArray[i]);
+        }
+
+    }
+
+    // insert into a heap
+    public void insert(int n){
         
-        for(int i = 0; i<)
     }
 
 
