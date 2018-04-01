@@ -30,16 +30,21 @@ public class MaxHeap {
     public void insert(int n){
         // insert the integer n into the heap properly, duplicates are ALLOWED. 
         // i.e. insert at end and percolate up until not greater than above
-        if(size == numelements){ // then it's full so don't insert
-            return;
+        if(size == numelements){ // then it's full so allocate double size
+            Integer[] newtable = new Integer[size*2];
+            // copy the element's into the new array
+            for (int i = 0; i<size; i++){
+                newtable[i] = table[i];
+            }
+            // now, swap arrays and fix size
+            this.table = newtable;
+            this.size = size*2;
         }
-        else{ // we can insert it, since we don't care about duplicates
-            size++;
-            // insert at bottom
-            table[size-1] = n;
-            // then percolate it up to where it's supposed to be
-            percolateUp(size-1);
-        }
+        size++;
+        // insert at bottom
+        table[size-1] = n;
+        // then percolate it up to where it's supposed to be
+        percolateUp(size-1);
     }
 
     public void percolateUp(int nodeIndex){
@@ -47,10 +52,11 @@ public class MaxHeap {
         int parentIndex, temp;
         // make sure we don't switch if we're at the beginning
         if(nodeIndex!=0){
+            // set the parent
             parentIndex = table[(nodeIndex-1)/2];
             // max heap so check that parent is smaller then swap if true
             if(table[parentIndex]<table[nodeIndex]){
-                // swap the two table
+                // swap the two table elements
                 temp = table[parentIndex];
                 table[parentIndex] = table[nodeIndex];
                 table[nodeIndex] = temp;
