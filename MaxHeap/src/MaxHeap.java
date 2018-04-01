@@ -33,7 +33,7 @@ public class MaxHeap {
         if(size == numelements){ // then it's full so don't insert
             return;
         }
-        else{ // we can insert it
+        else{ // we can insert it, since we don't care about duplicates
             size++;
             // insert at bottom
             table[size-1] = n;
@@ -60,15 +60,6 @@ public class MaxHeap {
         }
     }
 
-    public boolean isIn(int n){
-        // check if n element is in the heap
-        if(n>this.table[0]) // bigger than max so obviously not in
-            return false;
-        else{       // this case we have to actually look through it
-
-        }
-        return false;
-    }
 
     private int deleteMax(){
         // delete the maximum element in the heap (i.e. the root) and return it,
