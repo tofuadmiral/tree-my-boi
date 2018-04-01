@@ -75,14 +75,41 @@ public class MaxHeap {
         return 2*index+2;
     }
 
-    private int deleteMax(){
-        return 0;
+    public int deleteMax(){
+        int root = array[0];
+        array[0] = array[items-1];
+        heapify(array, 0);
+        return root;
     }
+
+    public void heapify(Integer[] table, int index){
+        // make this into a maxheap again
+        int l = getLeftChild(index);
+        int r = getRighChild(index);
+        int tobeswitched =0;
+        if (table[l] > table[index]){
+            // left child bigger, so swap
+            int temp = table[index];
+            table[index] = table[l];
+            table[l] = temp;
+            tobeswitched = l;
+        }
+        else if(table[r] > table[index]){
+            // right child bigger, so swap
+            int temp = table[index];
+            table[index] = table[r];
+            table[r] = temp;
+            tobeswitched = r;
+        }
+        // recursively call heapify method
+        heapify(table, tobeswitched);
+    }
+
 
     public String toString(){
         String stringrep = "";
         for(int i=0;i<size;i++){
-            for(int j=0;j<Math.pow(2,i)&&j+Math.pow(2,i)<size;j++){
+            for(int j=0;j<Math.pow(2,i)&&j+Math.pow(2,i)<=size;j++){
                 stringrep = stringrep + (array[j+(int)Math.pow(2,i)-1]+" ");
 
             }

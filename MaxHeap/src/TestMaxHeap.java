@@ -17,9 +17,19 @@ public class TestMaxHeap {
 
         // test 3: second constructor
         System.out.println("\nTest 3: Create heap from array");
+        Integer[] testarray = new Integer[10];
+        for (int i = 0; i<10; i++){
+            testarray[i] = i;
+        }
+        MaxHeap test2 = new MaxHeap(testarray);
+        System.out.println(test2.toString());
 
 
-        // test 4: insert something already in there
+        // test 4: delete max
+       int maxelement = test2.deleteMax();
+       System.out.println("The max element is: " + maxelement);
+
+
 
         // test 5: insert until we have to rehash
         System.out.println("\nTest 5: insert till we need to reallocate");
