@@ -50,18 +50,6 @@ public class TestMaxHeap {
             System.out.println(testarray[i]);
         }
 
-
-
-        // test 6: try insert and count
-        System.out.println("\nTest 6: try insert and count, 1 probe: ");
-
-        // test 7: try insert and count
-        System.out.println("\nTest 7: try insert and count, >1 probes: ");
-
-        // test 8: get average probes for successful search
-        // just change 0.1 to other load factors to find the load factor for each test case
-        System.out.println("\nTest 8: find successful search count ");
-
     }
 
 }
