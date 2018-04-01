@@ -69,11 +69,36 @@ public class MaxHeap {
 
     private int deleteMax(){
         // delete the maximum element in the heap (i.e. the root) and return it,
-        // then replace with the appropriate next element
-        int root = table[1];
-
-
+        // then replace with the appropriate next element i.e. smallest
+        int root = table[1]; // one we want to return later
+        table[1] = table[size-1]; // replace with last element
+        this.size--;
+        heapify(this.table, 1); // changes table to become a max heap again
         return root;
+    }
+
+    public void heapify(Integer[]table, int index){
+        int largest = index;
+        int l = index*2;
+        int r = index*2+1;
+
+        // if left child larger than root
+        if (l<size && table[l] > table[largest])
+            largest = l;
+
+        // if right child bigger than biggest so far
+        if (r < size && table[r] > table[largest])
+            largest = r;
+
+        // if largest is not the ROOT of the tree
+        if (largest != index){
+            int swap = table[index];
+            // swap the two positions
+            table[index] = table[largest];
+            table[largest] = swap;
+            // recursively swap elements down
+            heapify(table, largest);
+        }
     }
 
     public String toString(){
