@@ -103,7 +103,16 @@ public class MaxHeap {
 
     public String toString(){
         // return a string representation of the heap in level order
+        int height = log2(this.size) + 1;
+        for (int i = 1; i<size; i++){
+            
+        }
         return "";
+    }
+
+    private int log2(int x) {
+        // log something with the base of 2
+        return (int)(Math.log(x) / Math.log(2));
     }
 
     public static void heapsort(Integer[] arrayToSort){
