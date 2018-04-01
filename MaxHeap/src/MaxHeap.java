@@ -6,7 +6,6 @@ public class MaxHeap {
 
     // constructors
 
-
     // empty constructor
     public MaxHeap(int sizeofheap){
         array = new Integer[sizeofheap];
@@ -16,9 +15,10 @@ public class MaxHeap {
 
     // constructor from array
     public MaxHeap(Integer[] someArray){
-        items = someArray.length;
-        size = items;
+        size = someArray.length;
         array = new Integer[size];
+        // insert every element from the array into the heap.
+        // When you insert, it'll be done in order.
         for(int i = 0; i<size; i++){
             this.insert(someArray[i]);
         }
@@ -26,7 +26,7 @@ public class MaxHeap {
 
     public void insert(int value) {
         // insert into heap
-        if (size == array.length){
+        if (items == array.length){
             // have to reallocate bc too many i.e. full
             size = size*2;
             Integer[] newtable = new Integer[size];
@@ -38,7 +38,7 @@ public class MaxHeap {
             array = newtable;
         }
         else {
-            items++;
+            items++; // we're adding an item, so add to end
             array[items - 1] = value;
             siftUp(items - 1);
         }
@@ -48,9 +48,9 @@ public class MaxHeap {
         int parentIndex, temp;
         if (nodeIndex != 0) {
             parentIndex = getParent(nodeIndex);
-            // now that we have parent, compare to parent. if parent smaller, swap
+            // now that we have parent, compare to parent. if parent smaller or null, swap
             // otherwise don't swap, and keep doing this recursively.
-            if (array[parentIndex] < array[nodeIndex]) {
+            if ((array[parentIndex] == null) || array[parentIndex]< array[nodeIndex]) {
                 temp = array[parentIndex];
                 array[parentIndex] = array[nodeIndex];
                 array[nodeIndex] = temp;
@@ -58,6 +58,7 @@ public class MaxHeap {
             }
         }
     }
+
 
 
 
@@ -75,11 +76,19 @@ public class MaxHeap {
     }
 
     private int deleteMax(){
-
+        return 0;
     }
 
     public String toString(){
+        String stringrep = "";
+        for(int i=0;i<size;i++){
+            for(int j=0;j<Math.pow(2,i)&&j+Math.pow(2,i)<size;j++){
+                stringrep = stringrep + (array[j+(int)Math.pow(2,i)-1]+" ");
 
+            }
+            stringrep = stringrep + "\n";
+        }
+        return stringrep;
     }
 
     public static void heapsort(Integer[] arrayToSort){

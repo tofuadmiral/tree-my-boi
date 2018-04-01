@@ -3,19 +3,21 @@ public class TestMaxHeap {
 
         // test 1: create table, but it's empty
         System.out.println("Test 1: Create an empty MaxHeap:");
-        MaxHeap test1 = new MaxHeap(10);
+        MaxHeap test1 = new MaxHeap(25);
         System.out.println(test1.toString());
 
         // test 2: insert a few elements into the table
-        System.out.println("\nTest 2: insert some items into the MaxHeap");
+        System.out.println("Test 2: insert some items into the MaxHeap");
         test1.insert(4);
         test1.insert(5);
         test1.insert(1);
+        test1.insert(10);
         System.out.println(test1.toString());
 
 
-        // test 3: linear probing
-        System.out.println("\nTest 3: Create a non Empty Max Heap:");
+        // test 3: second constructor
+        System.out.println("\nTest 3: Create heap from array");
+
 
         // test 4: insert something already in there
 
