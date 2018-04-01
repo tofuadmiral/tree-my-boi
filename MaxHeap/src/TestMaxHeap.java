@@ -28,6 +28,9 @@ public class TestMaxHeap {
         // test 4: delete max
        int maxelement = test2.deleteMax();
        System.out.println("The max element is: " + maxelement);
+       System.out.println("heap is preserved, as evidenced by: ");
+       System.out.println(test2.toString());
+
 
 
 

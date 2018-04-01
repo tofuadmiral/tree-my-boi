@@ -76,34 +76,50 @@ public class MaxHeap {
     }
 
     public int deleteMax(){
+        if (items == 0) // no elements in heap
+            return 0;
+        // replace root with last item, and delete it
         int root = array[0];
         array[0] = array[items-1];
-        heapify(array, 0);
+        items--;
+        size --;
+
+        int i = 0;
+        while(true){
+            int l = getLeftChild(i);
+            int r = getRighChild(i);
+
+            //If left in array, left bigger than parent, left bigger than right, then swap
+            if((l<=(size-1))&&(array[i]<array[l])&&(array[l]>array[r])){
+
+                int temp = array[i];
+                array[i] = array[l];
+                array[l] = temp;
+
+                i = l;
+
+            }
+
+            //If right in array, right bigger than parent, right bigger than left, then swap
+            else if((r<=(size-1))&&(array[i]<array[r])) {
+
+                int temp = array[i];
+                array[i] = array[r];
+                array[r] = temp;
+
+                i = r;
+            }
+
+            // if we get this far we can break out bc we meet the rules of a heap
+            else{
+                break;
+            }
+
+        }
+        // now we know it's a heap so we can return our value
         return root;
     }
 
-    public void heapify(Integer[] table, int index){
-        // make this into a maxheap again
-        int l = getLeftChild(index);
-        int r = getRighChild(index);
-        int tobeswitched =0;
-        if (table[l] > table[index]){
-            // left child bigger, so swap
-            int temp = table[index];
-            table[index] = table[l];
-            table[l] = temp;
-            tobeswitched = l;
-        }
-        else if(table[r] > table[index]){
-            // right child bigger, so swap
-            int temp = table[index];
-            table[index] = table[r];
-            table[r] = temp;
-            tobeswitched = r;
-        }
-        // recursively call heapify method
-        heapify(table, tobeswitched);
-    }
 
 
     public String toString(){
