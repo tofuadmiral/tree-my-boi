@@ -103,21 +103,28 @@ public class MaxHeap {
 
     public String toString(){
         // return a string representation of the heap in level order
-        int height = log2(this.size) + 1;
-        for (int i = 1; i<size; i++){
-            
-        }
-        return "";
+       int it, bin = 1;
+       String stringrep = "";
+       for (it=1; it<size; it++){
+           stringrep = stringrep + table[it] + ", ";
+           if (it == bin){
+               bin = bin*2;
+               it =1;
+               stringrep+="\n";
+           }
+       }
+       return stringrep;
     }
 
-    private int log2(int x) {
-        // log something with the base of 2
-        return (int)(Math.log(x) / Math.log(2));
-    }
 
     public static void heapsort(Integer[] arrayToSort){
         // sort arrayToSort by making into a heap and then
         // delete max repeatedly and then copy back into the array
+        MaxHeap newheap = new MaxHeap(arrayToSort);
+        for (int i = 0; i<arrayToSort.length; i++){
+            // loop through, delete max and keep adding to sorted array
+            arrayToSort[arrayToSort.length-i] = newheap.deleteMax();
+        }
     }
 
     // ACCESSORS
