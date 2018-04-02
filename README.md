@@ -7,6 +7,10 @@ Experimenting with Tree-like data structures, implementing them in a variety of 
 * [IntelliJ](https://www.jetbrains.com/idea/) - IDE
 * Java
 
+## Currently includes
+* An implementation of a max heap
+* An implemementation of a binary search tree
+
 ## Authors
 
 * **Ahmed Fuad Ali** 
