@@ -1,6 +1,6 @@
 # Tree My Boi
 
-Experimenting with Tree-like data structures, implementing them in a variety of contexts and environments. These include Max Heaps, Min Heaps, Binary Search Trees and more!xt
+Experimenting with Tree-like data structures, implementing them in a variety of contexts and environments. These include Max Heaps, Min Heaps, Binary Search Trees and more!
 
 ## Built With
 
