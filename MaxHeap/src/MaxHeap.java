@@ -28,7 +28,7 @@ public class MaxHeap {
         // insert into heap
         if (items == array.length){
             // have to reallocate bc too many i.e. full
-            size = size*2;
+            this.size = size*2;
             Integer[] newtable = new Integer[size];
             for(int i = 0; i<size/2; i++){
                 // copy old elements into new table

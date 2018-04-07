@@ -50,6 +50,15 @@ public class TestMaxHeap {
             System.out.println(testarray[i]);
         }
 
+        MaxHeap test3 = new MaxHeap(testarray);
+
+       // test 6 double size:
+
+        System.out.println("\nTest 6: Try to insert if already full, show that size doubles");
+        System.out.println("previous size: " + test3.getSize());
+        test3.insert(6);
+        System.out.println("after insert size: "+test3.getSize());
+
     }
 
 }
